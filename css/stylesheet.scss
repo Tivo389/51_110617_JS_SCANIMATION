@@ -2,7 +2,7 @@
 /*------------  VARIABLES  ------------*/
 $color--black: #222222;
 $color--white: #FBFBFB;
-$color__theme--main: #00A5D5;
+$color__theme--main: #969696;
 $color__theme--sub: #EED786;
 $color__theme--accent: #EE86A8;
 $font__header: "azo-sans-web", "helvetica", sans-serif;
@@ -19,10 +19,58 @@ $transition--lg: 1s;
 
 /*------------  xs < 768px (.container @ auto)  ------------*/
 // STRUCTURE (xs)
+body {
+  background-color: #F0F0F0;
+}
 #content {
-  display: flex;
+  // display: flex;
   height: 100vh;
   position: fixed;
+  width: 300vw;
+  left: -155vw;
+  transition: all 60s linear;
+  &.animate {
+    left: 65vw;
+  }
+}
+#scanimation__container {
+  // filter: blur(1px);
+  left: 0;
+  position: fixed;
+  top: 0;
+  z-index: -10;
+}
+#scanimation__svg {
+  width: 450px;
+  fill: $color__theme--main;
+  // fill: #8C4000;
+}
+.bar__container {
+  border-radius: 2px;
+  box-shadow: 0 0 1px $color__theme--main;
+  display: inline-grid;
+  font-size: 0;
+  height: 36vh;
+  margin-top: 32vh;
+  overflow: hidden;
+  & svg:first-child {
+    height: 36vh;
+    width: 15px;
+    .bar__fill {
+      fill: $color__theme--main;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  & svg:last-child {
+    height: 36vh;
+    width: 3px;
+    .bar__transparent {
+      fill: transparent;
+      height: 100%;
+      width: 100%;
+    }
+  }
 }
 .section--full-view {
   height: 100vh;
