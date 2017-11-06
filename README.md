@@ -8,4 +8,4 @@ AUTHOR:
 Shun
 
 DESCRIPTION:
-Scanimation 6 frams
+Scanimation 6 frames
