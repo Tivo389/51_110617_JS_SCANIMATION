@@ -22,15 +22,75 @@ $transition--lg: 1s;
 body {
   background-color: #F0F0F0;
 }
+#div__content {
+  display: inline-flex;;
+  height: 100vh;
+  left: 65vw;
+  position: fixed;
+  top: 0;
+  transition: all 50s linear;
+  width: 300vw;
+  width: auto;
+  &.animate {
+    left: -155vw;
+  }
+  & .bar__container {
+    display: flex;
+    display: inline-flex;;
+    font-size: 0;
+    margin-top: 25vh;
+    overflow: hidden;
+    .bar__fill {
+      background-color: $color__theme--main;
+      border-radius: 2px;
+      box-shadow: 0 0 1px $color__theme--main;
+      height: 50vh;
+      width: 15px;
+    }
+    .bar__transparent {
+      background-color: transparent;
+      height: 50vh;
+      width: 3px;
+    }
+  }
+}
 #content {
   // display: flex;
   height: 100vh;
+  left: 65vw;
   position: fixed;
+  top: 0;
+  transition: all 50s linear;
   width: 300vw;
-  left: -155vw;
-  transition: all 60s linear;
   &.animate {
-    left: 65vw;
+    left: -165vw;
+  }
+  & .bar__container {
+    box-shadow: 0 0 1px $color__theme--main;
+    display: inline-grid;
+    font-size: 0;
+    height: 50vh;
+    margin-top: 25vh;
+    overflow: hidden;
+    & svg:first-child {
+      fill: red;
+      height: 50vh;
+      width: 15px;
+      .bar__fill {
+        fill: $color__theme--main;
+        height: 100%;
+        width: 100%;
+      }
+    }
+    & svg:last-child {
+      height: 50vh;
+      width: 3px;
+      .bar__transparent {
+        fill: transparent;
+        height: 100%;
+        width: 100%;
+      }
+    }
   }
 }
 #scanimation__container {
@@ -45,32 +105,16 @@ body {
   fill: $color__theme--main;
   // fill: #8C4000;
 }
-.bar__container {
-  border-radius: 2px;
-  box-shadow: 0 0 1px $color__theme--main;
-  display: inline-grid;
-  font-size: 0;
-  height: 36vh;
-  margin-top: 32vh;
-  overflow: hidden;
-  & svg:first-child {
-    height: 36vh;
-    width: 15px;
-    .bar__fill {
-      fill: $color__theme--main;
-      height: 100%;
-      width: 100%;
-    }
-  }
-  & svg:last-child {
-    height: 36vh;
-    width: 3px;
-    .bar__transparent {
-      fill: transparent;
-      height: 100%;
-      width: 100%;
-    }
-  }
+.frame {
+  clip: rect(0px,450px,280px,0px);
+  height: 280px;
+  left: calc((100vw - 420px) / 2);
+  position: fixed;
+  top: calc((100vh - 280px) / 2);
+  width: 420px;
+}
+.header__text {
+  transform: translateY(60px);
 }
 .section--full-view {
   height: 100vh;
@@ -188,6 +232,7 @@ a {
   &--center--center {
     @extend %extendFlex;
     justify-content: center;
+    flex-direction: column;
   }
   &--left--center {
     @extend %extendFlex;
