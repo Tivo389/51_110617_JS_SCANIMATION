@@ -5,9 +5,16 @@ $(document).ready(function () {
 // MAIN FUNCTION BLOCK START
 
     $(window).keyup(function(e) {
-      console.log(e.which);
-      if (e.which == 48) {
+      // console.log(e.which);
+      if (e.which === 48) {
           $('#content').addClass('animate');
+        return false;
+      }
+    });
+
+    $(window).keyup(function(e) {
+      if (e.which === 57) {
+          $('#div__content').addClass('animate');
         return false;
       }
     });
